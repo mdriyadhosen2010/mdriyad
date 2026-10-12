@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Riyad | AI Automation Developer: AI Agents, RAG &amp; n8n Workflows</title>
+  <meta name="description" content="Riyad is an AI Automation Developer who builds practical AI agents, RAG systems, and n8n automation workflows that help businesses reduce repetitive work and streamline operations.">
+  <meta name="theme-color" content="#070B16">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph. EDIT: add og:url and og:image once the site has a public address and a real image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Riyad | AI Automation Developer">
+  <meta property="og:description" content="Practical AI agents and automation workflows that help businesses reduce repetitive work.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563EB'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='Arial,sans-serif'%3ER%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts are optional: if they fail to load, the system-font fallbacks in the CSS are used. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+<body>
+
+<!-- Icon sprite. Each icon is used with <svg class="icon"><use href="#i-name"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01"/><path d="M16 16h.01"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-message-square" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></symbol>
+    <symbol id="i-user-check" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="m16 11 2 2 4-4"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ======================= HEADER / NAVIGATION ======================= -->
+<header class="site-header">
+  <div class="container nav-bar">
+    <!-- EDIT: brand name -->
+    <a class="brand" href="#home" aria-label="Riyad, back to top">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <span class="brand-name">Riyad</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+      <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="#i-x"/></svg>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#home" data-nav="home">Home</a></li>
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#services" data-nav="services">Services</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#skills" data-nav="skills">Skills</a></li>
+        <li><a href="#faq" data-nav="faq">FAQ</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-cta" href="#contact">Let's Talk</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home" data-spy="home" aria-labelledby="hero-title">
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+      <!-- EDIT: headline, description, and button text -->
+      <h1 id="hero-title">Turn Repetitive Business Processes Into Intelligent Automated Systems.</h1>
+      <p class="lead">I design AI agents and smart workflows that connect your tools, automate repetitive processes, and help your business work more efficiently.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Let's Talk</a>
+        <a class="btn btn-ghost" href="#projects">Explore My Work</a>
+      </div>
+      <ul class="capabilities" aria-label="Core capabilities">
+        <li>AI Agents</li>
+        <li>RAG Systems</li>
+        <li>n8n Automation</li>
+        <li>Business Process Automation</li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <figure class="flow-panel" aria-labelledby="flow-caption">
+        <div class="flow-head">
+          <span class="flow-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Support request workflow</span>
+          <span class="badge badge-demo">Example</span>
+        </div>
+
+        <ol class="flow" aria-label="Example automation workflow, five steps">
+          <li class="flow-node" style="--i:0">
+            <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-zap"/></svg></span>
+            <span>
+              <span class="node-title">Trigger</span>
+              <span class="node-sub">A message, form, or email arrives</span>
+            </span>
+          </li>
+          <li class="flow-node" style="--i:1">
+            <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-filter"/></svg></span>
+            <span>
+              <span class="node-title">Data Processing</span>
+              <span class="node-sub">Clean, check, and structure the input</span>
+            </span>
+          </li>
+          <li class="flow-node is-agent" style="--i:2">
+            <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bot"/></svg></span>
+            <span>
+              <span class="node-title">AI Agent</span>
+              <span class="node-sub">Understands the request and decides the next step</span>
+              <ul class="node-tags" aria-label="Agent capabilities">
+                <li>Knowledge lookup</li>
+                <li>Human approval</li>
+              </ul>
+            </span>
+          </li>
+          <li class="flow-node" style="--i:3">
+            <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-share"/></svg></span>
+            <span>
+              <span class="node-title">Connected Tools</span>
+              <ul class="node-tags" aria-label="Examples of connected tools">
+                <li>Email</li>
+                <li>Database</li>
+                <li>Chat app</li>
+                <li>Docs</li>
+              </ul>
+            </span>
+          </li>
+          <li class="flow-node" style="--i:4">
+            <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg></span>
+            <span>
+              <span class="node-title">Automated Result</span>
+              <span class="node-sub">Reply sent, record updated, team notified</span>
+            </span>
+          </li>
+        </ol>
+
+        <figcaption id="flow-caption">Illustrative example. Real workflows are designed around your tools and rules.</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="section" id="about" data-spy="about" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="about-main reveal">
+      <h2 id="about-title">Practical automation your team can understand and maintain</h2>
+      <!-- EDIT: sample text. Replace with your own words. Add a short personal background only if you can support it with facts. -->
+      <p class="about-lead">I focus on building practical automation systems that connect business tools, process information, and use AI where it adds real value. My goal is to turn repetitive manual tasks into reliable, understandable workflows that businesses can maintain and improve.</p>
+    </div>
+
+    <ul class="principles">
+      <li class="principle reveal">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bot"/></svg></span>
+        <div>
+          <h3>Use AI where it adds real value</h3>
+          <p>Not every step needs an AI model. Predictable steps stay rule-based, and AI handles the parts that involve language, judgment, or messy input.</p>
+        </div>
+      </li>
+      <li class="principle reveal" style="--d:1">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-workflow"/></svg></span>
+        <div>
+          <h3>Start with the process, not the tool</h3>
+          <p>I map how the work happens today, find the repeated steps and decision points, then design the workflow around your real tools and constraints.</p>
+        </div>
+      </li>
+      <li class="principle reveal" style="--d:2">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></span>
+        <div>
+          <h3>Build for reliability and practical value</h3>
+          <p>Workflows include error handling, clear logs, and documentation, so your team knows what runs, what can fail, and how to fix it.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="section section--alt" id="process" data-spy="about" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="process-title">How we work together</h2>
+      <p>A clear path from the first conversation to a documented handover.</p>
+    </div>
+    <!-- EDIT: steps. Keep the same <li class="step"> structure for each one. -->
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>Understand the business problem</h3>
+        <p>Identify the repetitive task, the business requirement, and the outcome you want.</p>
+      </li>
+      <li class="step reveal" style="--d:1">
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>Plan the workflow</h3>
+        <p>Decide on triggers, data inputs, decision points, integrations, and what happens when something fails.</p>
+      </li>
+      <li class="step reveal" style="--d:2">
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>Build the automation</h3>
+        <p>Develop the workflow and configure the tools and connections it needs.</p>
+      </li>
+      <li class="step reveal" style="--d:3">
+        <span class="step-num" aria-hidden="true">4</span>
+        <h3>Test and improve</h3>
+        <p>Check normal behavior, edge cases, error handling, and expected results.</p>
+      </li>
+      <li class="step reveal" style="--d:4">
+        <span class="step-num" aria-hidden="true">5</span>
+        <h3>Deliver and document</h3>
+        <p>Explain how the system works and document the key configuration and maintenance steps.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="section" id="services" data-spy="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="services-title">Automation services for repetitive work</h2>
+      <p>Each service targets a specific kind of repetitive work. Results depend on your tools and processes, so every project is scoped after a conversation.</p>
+    </div>
+
+    <!-- EDIT: services. Copy one <article class="card service"> block to add a service; delete a block to remove one.
+         data-topic is the text that pre-fills the email / WhatsApp message when someone clicks the link. -->
+    <div class="grid grid-3">
+      <article class="card service reveal">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bot"/></svg></span>
+        <h3>AI Agent Development</h3>
+        <p>Design agents that use AI to interpret requests and support defined business workflows.</p>
+        <p class="usecase"><strong>Use case:</strong> an assistant that reads incoming requests, picks the right workflow, and hands off to a person when it is unsure.</p>
+        <a class="text-link" href="#contact" data-topic="AI Agent Development">Discuss this service</a>
+      </article>
+
+      <article class="card service reveal" style="--d:1">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-workflow"/></svg></span>
+        <h3>Business Process Automation</h3>
+        <p>Automate repetitive operational tasks and connect the business applications you already use.</p>
+        <p class="usecase"><strong>Use case:</strong> new order details move from a form into a spreadsheet, trigger a notification, and create a follow-up task.</p>
+        <a class="text-link" href="#contact" data-topic="Business Process Automation">Discuss this service</a>
+      </article>
+
+      <article class="card service reveal" style="--d:2">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-database"/></svg></span>
+        <h3>RAG Systems</h3>
+        <p>Build knowledge-grounded AI assistants that retrieve relevant information from approved documents or data sources.</p>
+        <p class="usecase"><strong>Use case:</strong> a staff or customer assistant that answers from your own policies and product documents.</p>
+        <a class="text-link" href="#contact" data-topic="RAG Systems">Discuss this service</a>
+      </article>
+
+      <article class="card service reveal">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-square"/></svg></span>
+        <h3>Customer Support Automation</h3>
+        <p>Create automated support workflows that answer common questions, organize requests, and escalate cases when needed.</p>
+        <p class="usecase"><strong>Use case:</strong> common questions are answered automatically, while complex ones reach a team member with the conversation attached.</p>
+        <a class="text-link" href="#contact" data-topic="Customer Support Automation">Discuss this service</a>
+      </article>
+
+      <article class="card service reveal" style="--d:1">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span>
+        <h3>Email Automation</h3>
+        <p>Automate email processing, classification, notifications, and other suitable workflows.</p>
+        <p class="usecase"><strong>Use case:</strong> incoming enquiries are sorted by type, the right person is notified, and a draft reply is prepared for review.</p>
+        <a class="text-link" href="#contact" data-topic="Email Automation">Discuss this service</a>
+      </article>
+
+      <article class="card service reveal" style="--d:2">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-share"/></svg></span>
+        <h3>n8n Workflow Automation</h3>
+        <p>Connect APIs, applications, triggers, and data-processing steps through workflows that are easy to maintain.</p>
+        <p class="usecase"><strong>Use case:</strong> a webhook receives data, transforms it, and updates several tools in a defined order.</p>
+        <a class="text-link" href="#contact" data-topic="n8n Workflow Automation">Discuss this service</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING (optional) ============================
+     To hide this section: set sections.pricing to false in js/site-config.js,
+     or delete everything from this comment down to the closing </section>. -->
+<section class="section section--alt" id="pricing" data-spy="services" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="pricing-title">Packages</h2>
+      <p>Illustrative packages. Every project is scoped individually, so final pricing is agreed after we talk.</p>
+    </div>
+    <p class="notice reveal"><strong>Placeholder section.</strong> The prices and scope below are not set. Replace the bracketed text, or hide this section if you prefer custom quotes.</p>
+
+    <div class="grid grid-3">
+      <article class="card price-card reveal">
+        <h3>Starter Automation</h3>
+        <p class="price">[Add Price]</p>
+        <p class="scope">[Define Scope]</p>
+        <ul class="check-list">
+          <li>One clearly scoped workflow</li>
+          <li>Basic integration</li>
+          <li>Testing and handover</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-topic="Starter Automation package">Ask about this package</a>
+      </article>
+
+      <article class="card price-card reveal" style="--d:1">
+        <h3>AI Workflow</h3>
+        <p class="price">[Add Price]</p>
+        <p class="scope">[Define Scope]</p>
+        <ul class="check-list">
+          <li>A more advanced AI-assisted workflow</li>
+          <li>Multiple relevant processing steps</li>
+          <li>Defined integrations and error handling</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-topic="AI Workflow package">Ask about this package</a>
+      </article>
+
+      <article class="card price-card reveal" style="--d:2">
+        <h3>Custom Automation</h3>
+        <p class="price">[Add Price]</p>
+        <p class="scope">[Define Scope]</p>
+        <ul class="check-list">
+          <li>A tailored solution based on your requirements</li>
+          <li>More complex integrations</li>
+          <li>Scope determined after discussion</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-topic="Custom Automation package">Ask about this package</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROJECTS ============================ -->
+<section class="section" id="projects" data-spy="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="projects-title">Featured automation projects</h2>
+      <p>Each project shows how a workflow of this kind can be designed.</p>
+    </div>
+    <p class="notice reveal"><strong>Sample demonstrations.</strong> These are example projects, not verified client work. No client names, results, or screenshots are implied. Replace them with real project details as you complete them.</p>
+
+    <!-- EDIT: projects. To add one, copy a whole <article class="card project"> block and change the text.
+         To remove one, delete its block. The first project is shown wide (class "project--featured").
+         DEMO LINKS: add a "View demo" link inside the details area ONLY when a real URL exists, for example:
+         <a class="text-link" href="https://your-real-demo-url">View demo</a> -->
+    <div class="projects-grid">
+
+      <article class="card project project--featured reveal">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-database"/></svg>AI assistant</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>RAG Knowledge Assistant</h3>
+        <p class="project-problem"><strong>Problem:</strong> teams lose time searching documents, and general AI answers can be unreliable without the right source.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Question</li>
+          <li>Find relevant passages</li>
+          <li>Answer from sources</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>n8n</li><li>LLM</li><li>Vector database</li><li>Document sources</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>Approved documents are split into passages and indexed. When someone asks a question, the workflow retrieves the most relevant passages and gives them to the language model, which answers using that material.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Answers grounded in approved documents</li>
+              <li>Can show which source an answer came from</li>
+              <li>Clear fallback when nothing relevant is found</li>
+              <li>Designed so documents can be refreshed as information changes</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-square"/></svg>Customer support</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>AI Customer Support Agent</h3>
+        <p class="project-problem"><strong>Problem:</strong> support teams answer the same questions repeatedly, while urgent or sensitive requests need a person.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Customer question</li>
+          <li>AI drafts reply</li>
+          <li>Escalate if unsure</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>n8n</li><li>LLM</li><li>Knowledge base</li><li>Email or helpdesk</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>The agent classifies each request, answers common questions from approved information, and routes anything unclear, sensitive, or high priority to a person with the conversation attached.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Common questions handled automatically</li>
+              <li>Defined escalation path to a human</li>
+              <li>Conversation context passed to the team</li>
+              <li>Rules for topics the agent must not answer</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal" style="--d:1">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg>Messaging</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>Facebook Messenger Automation</h3>
+        <p class="project-problem"><strong>Problem:</strong> businesses receive many repetitive Messenger messages and cannot answer each one quickly.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Incoming message</li>
+          <li>Process and classify</li>
+          <li>Reply or log</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>Messenger webhook</li><li>n8n</li><li>LLM</li><li>Spreadsheet or database</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>A webhook receives each incoming message. The workflow extracts the details, applies rules or an AI step to decide what to do, then sends a reply or records the request for follow-up.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Webhook-based message intake</li>
+              <li>Replies for common requests</li>
+              <li>Requests logged for follow-up</li>
+              <li>Handover to a person for complex cases</li>
+              <li>Built within the platform's API and policy requirements</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal" style="--d:2">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Email automation</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>Email Automation System</h3>
+        <p class="project-problem"><strong>Problem:</strong> inboxes fill with enquiries and notifications that must be sorted before anyone can act.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>New email</li>
+          <li>Classify and extract</li>
+          <li>Notify or route</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>Email trigger</li><li>n8n</li><li>LLM</li><li>Notifications</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>Each incoming message is read by the workflow, classified, and its key details extracted. Depending on the rules, it sends a notification, updates a record, or prepares a draft for review.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Automatic categorizing of incoming email</li>
+              <li>Key details extracted into a structured record</li>
+              <li>Notifications to the right person or channel</li>
+              <li>Draft replies held for human approval</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Content publishing</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>Auto-Publishing Workflow</h3>
+        <p class="project-problem"><strong>Problem:</strong> preparing, formatting, and scheduling content by hand is repetitive and easy to get inconsistent.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Content ready</li>
+          <li>Format and prepare</li>
+          <li>Review, then publish</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>n8n</li><li>LLM</li><li>Content source</li><li>Publishing API</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>Content is collected from a defined source, prepared in the required format, and placed in a review queue. After approval, it is published or scheduled through the target platform's API.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Consistent formatting steps</li>
+              <li>Human review before anything goes live</li>
+              <li>Scheduling where the platform allows it</li>
+              <li>A log of what was published</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal" style="--d:1">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-send"/></svg>Chat bot</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>Telegram Automation</h3>
+        <p class="project-problem"><strong>Problem:</strong> people want quick answers or updates in a chat app they already use.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Telegram message</li>
+          <li>Workflow logic</li>
+          <li>Reply or alert</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>Telegram Bot API</li><li>n8n</li><li>LLM</li><li>Database</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>A Telegram bot passes commands and messages to an n8n workflow, which looks up information, runs the needed steps, and replies in the chat.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>Command-based and free-text interaction</li>
+              <li>Alerts and notifications sent to chats</li>
+              <li>Connection to databases, sheets, or APIs</li>
+              <li>Optional AI replies for open questions</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <article class="card project reveal" style="--d:2">
+        <div class="project-head">
+          <span class="project-cat"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg>SaaS integration</span>
+          <span class="badge badge-demo">Sample demo</span>
+        </div>
+        <h3>SaaS Business Automation</h3>
+        <p class="project-problem"><strong>Problem:</strong> business applications do not always talk to each other, so people copy data between them by hand.</p>
+        <ol class="mini-flow" aria-label="Workflow steps">
+          <li>Event in app A</li>
+          <li>Transform data</li>
+          <li>Update app B</li>
+        </ol>
+        <ul class="tags" aria-label="Tools used">
+          <li>APIs</li><li>Webhooks</li><li>Database</li><li>n8n or custom JavaScript</li>
+        </ul>
+        <details class="project-more">
+          <summary><span class="when-closed">View details</span><span class="when-open">Hide details</span></summary>
+          <div class="project-more-body">
+            <h4>Approach</h4>
+            <p>APIs and webhooks connect the application components. The workflow maps data between systems, runs checks, and handles failed requests with retries and alerts.</p>
+            <h4>Key features</h4>
+            <ul class="check-list">
+              <li>API and webhook integrations</li>
+              <li>Data mapping and validation</li>
+              <li>Error handling and failure alerts</li>
+              <li>Process documentation for handover</li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHAT TO EXPECT + TESTIMONIALS ============================ -->
+<section class="section section--alt" id="expect" data-spy="projects" aria-labelledby="expect-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="expect-title">What to expect</h2>
+      <p>The way I work is built around clarity and practical results.</p>
+    </div>
+
+    <div class="expect-grid">
+      <div class="expect-item reveal">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg></span>
+        <div>
+          <h3>A clear scope before work starts</h3>
+          <p>We agree on the process, the tools involved, and what is and is not included.</p>
+        </div>
+      </div>
+      <div class="expect-item reveal" style="--d:1">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-user-check"/></svg></span>
+        <div>
+          <h3>People stay in control</h3>
+          <p>Where it matters, workflows pause for human approval, and unclear or sensitive cases go to a person.</p>
+        </div>
+      </div>
+      <div class="expect-item reveal">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg></span>
+        <div>
+          <h3>Documentation you can use</h3>
+          <p>You receive an explanation of how the system works, how it is configured, and how to maintain it.</p>
+        </div>
+      </div>
+      <div class="expect-item reveal" style="--d:1">
+        <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-check"/></svg></span>
+        <div>
+          <h3>Honest about limits</h3>
+          <p>If a process is a poor fit for automation or AI, I will say so and suggest a simpler option.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS (optional).
+         To hide: set sections.testimonials to false in js/site-config.js, or delete this whole <div id="testimonials">.
+         Only add REAL, verified testimonials. Never invent a client or a quote. -->
+    <div class="testimonials" id="testimonials">
+      <div class="testimonials-head reveal">
+        <h3>Client feedback</h3>
+        <span class="badge badge-placeholder">Placeholder</span>
+      </div>
+      <div class="testimonial-grid">
+        <figure class="testimonial reveal">
+          <p>[Add a verified client testimonial here. Remove this block if you do not have one yet.]</p>
+          <figcaption>[Client name, role, company]</figcaption>
+        </figure>
+        <figure class="testimonial reveal" style="--d:1">
+          <p>[Add a second verified testimonial here, or delete this block.]</p>
+          <figcaption>[Client name, role, company]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section class="section" id="skills" data-spy="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="skills-title">Skills and tools</h2>
+      <p>The areas I work in, grouped by what they are used for.</p>
+    </div>
+
+    <!-- EDIT: skills. Add or remove <li> items inside each list. The title text appears as a hover tooltip. -->
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bot"/></svg>AI and LLM</h3>
+        <p>Working with language models and giving them the context and limits they need.</p>
+        <ul class="tags">
+          <li title="AI systems that interpret a request and take defined actions">AI Agents</li>
+          <li title="Models that understand and generate text">Large Language Models (LLMs)</li>
+          <li title="Answers grounded in documents retrieved at question time">Retrieval-Augmented Generation (RAG)</li>
+          <li title="Writing clear instructions that guide model behavior">Prompt Engineering</li>
+          <li title="Connecting AI models to business tools and data">AI Application Integration</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal" style="--d:1">
+        <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-workflow"/></svg>Automation</h3>
+        <p>Designing workflows that run reliably and are easy to follow.</p>
+        <ul class="tags">
+          <li title="Visual workflow automation platform">n8n</li>
+          <li title="Coordinating multi-step processes in the right order">Workflow Orchestration</li>
+          <li title="Automating repeated operational tasks">Business Process Automation</li>
+          <li title="Answering, sorting, and escalating support requests">Customer Support Automation</li>
+          <li title="Processing, sorting, and sending email automatically">Email Automation</li>
+          <li title="Preparing and publishing content, with review where needed">Auto-Publishing Workflows</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal" style="--d:2">
+        <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Integration and Development</h3>
+        <p>Connecting systems and shaping data so tools work together.</p>
+        <ul class="tags">
+          <li title="Ways for applications to exchange data">APIs</li>
+          <li title="Event notifications sent from one app to another">Webhooks</li>
+          <li title="Requests sent to web services">HTTP Requests</li>
+          <li title="A common format for structured data">JSON</li>
+          <li title="Connecting to external services and platforms">Third-Party Integrations</li>
+          <li title="Reading and writing records in databases">Database Integration</li>
+          <li title="Used where a workflow needs custom logic">Custom JavaScript (where applicable)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section section--alt" id="faq" data-spy="faq" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <div class="section-head reveal">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <p>Short answers to common questions from business owners.</p>
+    </div>
+
+    <!-- EDIT: questions and answers. Keep the button id / panel id pairs matching (faq-q1 / faq-a1, and so on). -->
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q1" aria-controls="faq-a1"><span>What types of business processes can you automate?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-inner"><p>Repetitive work that moves information between people and tools: handling enquiries, sorting email, updating spreadsheets or databases, sending notifications, and preparing content for publishing. If a task follows a pattern that can be described, it can usually be automated at least in part. If a process is a poor fit, I will tell you.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q2" aria-controls="faq-a2"><span>What is an AI agent?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-inner"><p>An AI agent is a program that uses an AI model to understand a request, decide what to do next, and use connected tools to do it, such as looking up information or sending a message. I design agents with clear limits so they stay within the tasks you define.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q3" aria-controls="faq-a3"><span>What is RAG, and when is it useful?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-inner"><p>RAG (retrieval-augmented generation) lets an AI assistant look up relevant passages from your own documents before it answers. Its replies are then based on your approved information instead of only general knowledge. It is useful for customer support, internal knowledge, and product questions.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q4" aria-controls="faq-a4"><span>Can you connect different applications through APIs?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>Yes, when the applications offer an API or webhooks, which most business tools do. I connect them so data moves automatically. Some tools limit access, so I check what is possible with your specific apps before planning the work.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q5" aria-controls="faq-a5"><span>Can an automation include human approval?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-inner"><p>Yes. A workflow can pause and ask a person to approve, edit, or reject a step, such as a drafted email or a post, before it continues. I recommend this for anything customer-facing or sensitive.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q6" aria-controls="faq-a6"><span>How do you handle errors and failed workflow steps?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-inner"><p>Failures are planned for during design: retries for temporary problems, clear error messages, alerts to the right person, and a record of what failed so it can be fixed or re-run. Error handling is part of testing, not an afterthought.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q7" aria-controls="faq-a7"><span>How is the project scope determined?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-inner"><p>We start with a conversation about the process, the tools you use, and the outcome you want. I then outline the workflow, the integrations, and what is and is not included, so that scope, timing, and pricing are agreed before work begins.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="faq-q8" aria-controls="faq-a8"><span>How can I discuss a custom automation requirement?</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></button></h3>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div class="faq-a-inner"><p>Send a short description of the process, the tools you use, and the result you want, using the email or WhatsApp options in the <a href="#contact">contact section</a>.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section contact" id="contact" data-spy="contact" aria-labelledby="contact-title">
+  <div class="container contact-grid">
+
+    <div class="contact-copy reveal">
+      <h2 id="contact-title">Have a Repetitive Process Worth Automating?</h2>
+      <p>Tell me about the workflow you want to improve, the tools you currently use, and the outcome you are looking for.</p>
+      <p class="topic-note" id="topic-note" hidden>
+        <span>Message topic: <strong data-topic-name></strong></span>
+        <button type="button" class="link-btn" data-topic-clear>Clear</button>
+      </p>
+    </div>
+
+    <!-- CONTACT DETAILS: do not edit the links here.
+         Add your real details in js/site-config.js. Until then, each item shows its placeholder
+         and is not clickable, so there are no broken links. -->
+    <div class="reveal" style="--d:1">
+      <div class="channels">
+        <a class="channel channel--primary is-placeholder" data-contact="email" aria-disabled="true">
+          <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span>
+          <span class="channel-text"><span class="channel-name">Email</span><span class="channel-value">[YOUR_EMAIL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel channel--primary is-placeholder" data-contact="whatsapp" aria-disabled="true">
+          <span class="icon-box"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message-circle"/></svg></span>
+          <span class="channel-text"><span class="channel-name">WhatsApp</span><span class="channel-value">[YOUR_WHATSAPP_NUMBER]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+      </div>
+
+      <div class="channels channels-social">
+        <a class="channel is-placeholder" data-contact="fiverr" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">Fiverr</span><span class="channel-value">[YOUR_FIVERR_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel is-placeholder" data-contact="linkedin" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">LinkedIn</span><span class="channel-value">[YOUR_LINKEDIN_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel is-placeholder" data-contact="github" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">GitHub</span><span class="channel-value">[YOUR_GITHUB_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel is-placeholder" data-contact="youtube" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">YouTube</span><span class="channel-value">[YOUR_YOUTUBE_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel is-placeholder" data-contact="facebook" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">Facebook</span><span class="channel-value">[YOUR_FACEBOOK_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+        <a class="channel is-placeholder" data-contact="x" aria-disabled="true">
+          <span class="channel-text"><span class="channel-name">X</span><span class="channel-value">[YOUR_X_URL]</span></span>
+          <svg class="icon channel-go" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home" aria-label="Riyad, back to top">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span>Riyad</span>
+        </a>
+        <p class="role">AI Automation Developer</p>
+        <p>I build practical AI agents and automation workflows that help businesses reduce repetitive work.</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h2>Explore</h2>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>Find me online</h2>
+        <ul class="footer-links">
+          <li><a class="is-placeholder" data-contact="fiverr" aria-disabled="true">Fiverr</a></li>
+          <li><a class="is-placeholder" data-contact="linkedin" aria-disabled="true">LinkedIn</a></li>
+          <li><a class="is-placeholder" data-contact="github" aria-disabled="true">GitHub</a></li>
+          <li><a class="is-placeholder" data-contact="youtube" aria-disabled="true">YouTube</a></li>
+          <li><a class="is-placeholder" data-contact="facebook" aria-disabled="true">Facebook</a></li>
+          <li><a class="is-placeholder" data-contact="x" aria-disabled="true">X</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-bottom">&copy; <span data-year>2026</span> Riyad. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Scripts: settings first (the file you edit), then the behavior. -->
+<script src="js/site-config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
